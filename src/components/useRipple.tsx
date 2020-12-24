@@ -28,21 +28,22 @@ const StyledRipple = styled.span<StyledRippleProps>`
   position: absolute;
   border-radius: 50%;
   transform: scale(0);
-  animation: ripple 600ms linear;
-  background-color: ${({ styles }) => styles.color};
+  animation: ripple 1000ms linear;
   opacity: ${({ styles }) => styles.opacity};
   pointer-events: none;
   top: ${({ top }) => top}px;
   left: ${({ left }) => left}px;
+  background-color: ${({ styles }) => styles.color};
   width: 0;
   height: 0;
   border-style: solid;
   border-width: ${({ size }) => size / 2}px;
-  border-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.6);
 
   @keyframes ripple {
     to {
-      transform: scale(4);
+      transform: scale(4) ;
+
       opacity: 0;
     }
   }
