@@ -27,15 +27,18 @@ const StyledRipple = styled.span<StyledRippleProps>`
     `}
   position: absolute;
   border-radius: 50%;
-  transform: scale(0.4);
+  transform: scale(0);
   animation: ripple 600ms linear;
   background-color: ${({ styles }) => styles.color};
   opacity: ${({ styles }) => styles.opacity};
   pointer-events: none;
-  width: ${({ size }) => size}px;
-  height: ${({ size }) => size}px;
   top: ${({ top }) => top}px;
   left: ${({ left }) => left}px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: ${({ size }) => size / 2}px;
+  border-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.3);
 
   @keyframes ripple {
     to {
@@ -48,6 +51,7 @@ const StyledRipple = styled.span<StyledRippleProps>`
 const useRipple = () => {
   const [isDisplay, setIsDisplay] = useState(false);
   const [position, setPosition] = useState({ top: 0, left: 0 });
+
   const [rippleProps, setRippleProps] = useState({
     top: 0,
     left: 0,

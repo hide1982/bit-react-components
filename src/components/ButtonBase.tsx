@@ -16,7 +16,7 @@ interface StyleProps {
   disableFocusStyle?: boolean;
 }
 
-type Props = DefaultProps & StyleProps;
+export type Props = DefaultProps & StyleProps;
 
 const StyledButton = styled.button<StyleProps>`
   position: relative;
