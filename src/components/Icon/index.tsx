@@ -1,11 +1,13 @@
 import React, { forwardRef } from "react";
 import styled from "styled-components";
 
-import getIcon, { IconName } from "../../utils/getIcon";
+import getIcon, { IconName as Name } from "../../utils/getIcon";
 import style from "../../constants/style";
 
+export type IconName = Name;
+
 interface Props {
-  name: IconName;
+  name: Name;
   width?: number;
   height?: number;
   color?: string;
@@ -33,8 +35,8 @@ const Icon = forwardRef<HTMLDivElement, Props>(
       color = style.icon.colorDefault,
     },
     ref
-  ) => {
-    const Icon = getIcon({ name });
+  ): JSX.Element => {
+    const Icon = getIcon(name);
 
     return (
       <IconWrapper ref={ref} height={height} width={width} color={color}>
