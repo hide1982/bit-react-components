@@ -52,6 +52,15 @@ const StyledButton = styled(ButtonBase)`
       opacity: 0.4;
     }
   }
+
+  :disabled {
+    filter: brightness(1.4);
+    cursor: default;
+
+    :hover {
+      filter: brightness(1.4);
+    }
+  }
 `;
 
 const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => (

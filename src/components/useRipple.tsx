@@ -26,7 +26,6 @@ const StyledRipple = styled.span<StyledRippleProps>`
       display: block;
     `}
   position: absolute;
-  border-radius: 50%;
   transform: scale(0);
   animation: ripple 1000ms linear;
   opacity: ${({ styles }) => styles.opacity};
@@ -42,8 +41,7 @@ const StyledRipple = styled.span<StyledRippleProps>`
 
   @keyframes ripple {
     to {
-      transform: scale(4);
-
+      transform: scale(4) rotate(45deg);
       opacity: 0;
     }
   }
