@@ -2,7 +2,9 @@ import React, { forwardRef } from "react";
 import styled from "styled-components";
 
 import style from "../constants/style";
-import ButtonBase, { Props as ButtonBaseProps } from "./ButtonBase";
+import ButtonBase from "./ButtonBase";
+
+import type { ButtonBaseProps as Props } from "../types";
 
 const StyledButton = styled(ButtonBase)`
   position: relative;
@@ -52,7 +54,7 @@ const StyledButton = styled(ButtonBase)`
   }
 `;
 
-const Button = forwardRef<HTMLButtonElement, ButtonBaseProps>((props, ref) => (
+const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => (
   <StyledButton ref={ref} {...props} />
 ));
 

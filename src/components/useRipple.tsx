@@ -42,7 +42,7 @@ const StyledRipple = styled.span<StyledRippleProps>`
 
   @keyframes ripple {
     to {
-      transform: scale(4) ;
+      transform: scale(4);
 
       opacity: 0;
     }

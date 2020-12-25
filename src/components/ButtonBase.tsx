@@ -4,21 +4,9 @@ import styled from "styled-components";
 import useForkRef from "../utils/useForkRef";
 import useRipple from "./useRipple";
 
-type DefaultProps = Omit<
-  React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  >,
-  "ref"
->;
+import type { ButtonBaseProps as Props, ButtonBaseStyleProps } from "../types";
 
-interface StyleProps {
-  disableFocusStyle?: boolean;
-}
-
-export type Props = DefaultProps & StyleProps;
-
-const StyledButton = styled.button<StyleProps>`
+const StyledButton = styled.button<ButtonBaseStyleProps>`
   position: relative;
   overflow: hidden;
   display: inline-flex;
