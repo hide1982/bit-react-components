@@ -14,6 +14,7 @@ const StyledButton = styled.button<ButtonBaseStyleProps>`
   border: none;
   cursor: pointer;
   outline: none;
+  padding: 0;
 `;
 
 const BaseButton = forwardRef<HTMLButtonElement, Props>((props, ref) => {

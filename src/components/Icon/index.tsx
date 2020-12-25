@@ -14,15 +14,17 @@ interface Props {
   className?: string;
 }
 
-type IconWrapperProps = Required<Pick<Props, "height" | "width" | "color">>;
+type IconWrapperProps = {
+  styles: Required<Pick<Props, "height" | "width" | "color">>;
+};
 
 const IconWrapper = styled.div<IconWrapperProps>`
   display: inline-block;
+  height: ${({ styles }) => styles.height}px;
+  width: ${({ styles }) => styles.width}px;
 
   svg {
-    height: ${({ height }) => height}px;
-    width: ${({ width }) => width}px;
-    fill: ${({ color }) => color};
+    fill: ${({ styles }) => styles.color};
   }
 `;
 
@@ -39,7 +41,7 @@ const Icon = forwardRef<HTMLDivElement, Props>(
     const Icon = getIcon(name);
 
     return (
-      <IconWrapper ref={ref} height={height} width={width} color={color}>
+      <IconWrapper ref={ref} styles={{ width, height, color }}>
         {Icon}
       </IconWrapper>
     );
