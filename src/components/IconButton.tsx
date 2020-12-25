@@ -4,9 +4,10 @@ import styled from "styled-components";
 import Icon from "./Icon";
 import ButtonBase from "./ButtonBase";
 
+import type { ButtonBaseStyleProps } from "../types";
 import type { IconName } from "./Icon";
 
-interface Props {
+interface Props extends ButtonBaseStyleProps {
   name: IconName;
   color?: string;
   hoverColor?: string;
@@ -66,16 +67,28 @@ const StyledButton = styled(ButtonBase)<{ hoverColor?: string }>`
   }
 `;
 
-const IconButton = forwardRef<HTMLButtonElement, Props>(
-  ({ name, color, hoverColor = "rgba(0, 0, 0, 0.2)", disabled }, ref) => {
-    const iconColor = disabled ? "#ccc" : color;
+const IconButton = forwardRef<HTMLButtonElement, Props>((props, ref) => {
+  const {
+    name,
+    color,
+    hoverColor = "rgba(0, 0, 0, 0.2)",
+    rippleColors,
+    rippleRadius,
+    disabled,
+  } = props;
+  const iconColor = disabled ? "#ccc" : color;
 
-    return (
-      <StyledButton ref={ref} disabled={disabled} hoverColor={hoverColor}>
-        <Icon name={name} width={16} height={16} color={iconColor} />
-      </StyledButton>
-    );
-  }
-);
+  return (
+    <StyledButton
+      ref={ref}
+      disabled={disabled}
+      hoverColor={hoverColor}
+      rippleColors={rippleColors}
+      rippleRadius={rippleRadius}
+    >
+      <Icon name={name} width={16} height={16} color={iconColor} />
+    </StyledButton>
+  );
+});
 
 export default IconButton;

@@ -18,7 +18,14 @@ const StyledButton = styled.button<ButtonBaseStyleProps>`
 `;
 
 const BaseButton = forwardRef<HTMLButtonElement, Props>((props, ref) => {
-  const { disableFocusStyle, children, onClick, ...rest } = props;
+  const {
+    rippleColors,
+    rippleRadius,
+    rippleDuration,
+    children,
+    onClick,
+    ...rest
+  } = props;
   const { pulsate, setRippleProps, Ripple } = useRipple();
 
   const baseButtonRef = useRef<HTMLButtonElement>(null);
@@ -41,14 +48,15 @@ const BaseButton = forwardRef<HTMLButtonElement, Props>((props, ref) => {
   };
 
   return (
-    <StyledButton
-      ref={handleRef}
-      disableFocusStyle={disableFocusStyle}
-      onClick={handleClick}
-      {...rest}
-    >
+    <StyledButton ref={handleRef} onClick={handleClick} {...rest}>
       {children}
-      <Ripple />
+      <Ripple
+        styles={{
+          colors: rippleColors,
+          radius: rippleRadius,
+          duration: rippleDuration,
+        }}
+      />
     </StyledButton>
   );
 });

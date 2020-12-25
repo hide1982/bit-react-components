@@ -1,22 +1,34 @@
 import React, { useState, useCallback, forwardRef } from "react";
 import styled, { css } from "styled-components";
 
+interface Styles {
+  colors?: string | [string, string?];
+  radius?: string;
+  opacity?: number;
+  duration?: string;
+}
+
 interface StyledRippleProps {
   isDisplay: boolean;
   top: number;
   left: number;
   size: number;
-  styles: Styles;
+  styles?: Styles;
 }
 
 interface RippleProps {
   styles?: Styles;
 }
 
-interface Styles {
-  color?: string;
-  opacity?: number;
-}
+const getBorderColor = (colors: Styles["colors"]) => {
+  if (!colors) return "rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.6)";
+
+  if (typeof colors === "string") {
+    return colors;
+  }
+
+  return `${colors[0]} ${colors[1] ?? colors[0]}`;
+};
 
 const StyledRipple = styled.span<StyledRippleProps>`
   display: none;
@@ -26,18 +38,18 @@ const StyledRipple = styled.span<StyledRippleProps>`
       display: block;
     `}
   position: absolute;
-  transform: scale(0);
-  animation: ripple 1000ms linear;
-  opacity: ${({ styles }) => styles.opacity};
-  pointer-events: none;
   top: ${({ top }) => top}px;
   left: ${({ left }) => left}px;
-  background-color: ${({ styles }) => styles.color};
   width: 0;
   height: 0;
+  border-radius: ${({ styles }) => styles?.radius ?? 0};
   border-style: solid;
   border-width: ${({ size }) => size / 2}px;
-  border-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.6);
+  border-color: ${({ styles }) => getBorderColor(styles?.colors)};
+  pointer-events: none;
+  opacity: ${({ styles }) => styles?.opacity ?? 0.5};
+  transform: scale(0);
+  animation: ripple ${({ styles }) => styles?.duration ?? "800ms"} linear;
 
   @keyframes ripple {
     to {
@@ -69,19 +81,17 @@ const useRipple = () => {
     [rippleProps]
   );
 
-  const Ripple = forwardRef<HTMLSpanElement, RippleProps>(
-    ({ styles = { color: "#fff", opacity: 0.5 } }, ref) => (
-      <StyledRipple
-        ref={ref}
-        isDisplay={isDisplay}
-        size={rippleProps.size}
-        top={position.top}
-        left={position.left}
-        onAnimationEnd={() => setIsDisplay(false)}
-        styles={styles}
-      />
-    )
-  );
+  const Ripple = forwardRef<HTMLSpanElement, RippleProps>(({ styles }, ref) => (
+    <StyledRipple
+      ref={ref}
+      isDisplay={isDisplay}
+      size={rippleProps.size}
+      top={position.top}
+      left={position.left}
+      onAnimationEnd={() => setIsDisplay(false)}
+      styles={styles}
+    />
+  ));
 
   return { setRippleProps, pulsate, Ripple };
 };

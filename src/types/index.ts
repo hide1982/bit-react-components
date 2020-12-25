@@ -7,7 +7,9 @@ type DefaultButtonBaseProps = Omit<
 >;
 
 export interface ButtonBaseStyleProps {
-  disableFocusStyle?: boolean;
+  rippleColors?: string | [string, string?];
+  rippleRadius?: string;
+  rippleDuration?: string;
 }
 
 export type ButtonBaseProps = DefaultButtonBaseProps & ButtonBaseStyleProps;
