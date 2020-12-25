@@ -8,10 +8,12 @@ import type { IconName } from "./Icon";
 
 interface Props {
   name: IconName;
+  color?: string;
+  hoverColor?: string;
   disabled?: boolean;
 }
 
-const StyledButton = styled(ButtonBase)`
+const StyledButton = styled(ButtonBase)<{ hoverColor?: string }>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +22,7 @@ const StyledButton = styled(ButtonBase)`
   transition: background-color 300ms;
 
   :hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: ${({ hoverColor }) => hoverColor};
   }
 
   ::before,
@@ -58,22 +60,22 @@ const StyledButton = styled(ButtonBase)`
   :disabled {
     cursor: default;
 
-    svg {
-      fill: #ccc;
-    }
-
     :hover {
       background-color: transparent;
     }
   }
 `;
 
-const IconButton = forwardRef<HTMLButtonElement, Props>((props, ref) => {
-  return (
-    <StyledButton ref={ref} disabled={props.disabled}>
-      <Icon name={props.name} width={16} height={16} />
-    </StyledButton>
-  );
-});
+const IconButton = forwardRef<HTMLButtonElement, Props>(
+  ({ name, color, hoverColor = "rgba(0, 0, 0, 0.2)", disabled }, ref) => {
+    const iconColor = disabled ? "#ccc" : color;
+
+    return (
+      <StyledButton ref={ref} disabled={disabled} hoverColor={hoverColor}>
+        <Icon name={name} width={16} height={16} color={iconColor} />
+      </StyledButton>
+    );
+  }
+);
 
 export default IconButton;
