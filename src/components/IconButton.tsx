@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Icon from "./Icon";
 import ButtonBase from "./ButtonBase";
+import style from "../constants/style";
 
 import type { ButtonBaseStyleProps } from "../types";
 import type { IconName } from "./Icon";
@@ -27,7 +28,7 @@ const StyledButton = styled(ButtonBase)<{ hoverColor?: string }>`
   }
 
   :focus-visible {
-    outline: solid 2px #aaa;
+    outline: ${style.outline};
   }
 
   :disabled {
@@ -58,7 +59,7 @@ const IconButton = forwardRef<HTMLButtonElement, Props>((props, ref) => {
       rippleColors={rippleColors}
       rippleRadius={rippleRadius}
     >
-      <Icon name={name} width={16} height={16} color={iconColor} />
+      <Icon name={name} color={iconColor} />
     </StyledButton>
   );
 });

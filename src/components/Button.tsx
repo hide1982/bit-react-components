@@ -13,24 +13,24 @@ const StyledButton = styled(ButtonBase)`
   align-items: center;
   height: 32px;
   padding: 0 12px;
-  background-color: ${style.primaryColor};
-  color: ${style.button.text.color};
+  background-color: #aaa;
+  color: #fff;
   transition: filter 300ms;
 
   :hover {
-    filter: brightness(0.9);
+    filter: ${style.filter.hover};
   }
 
   :focus-visible {
-    outline: solid 2px #888;
+    outline: ${style.outline};
   }
 
   :disabled {
-    filter: brightness(1.4);
+    filter: ${style.filter.disabled};
     cursor: default;
 
     :hover {
-      filter: brightness(1.4);
+      filter: ${style.filter.disabled};
     }
   }
 `;
