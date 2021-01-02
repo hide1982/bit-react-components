@@ -40,7 +40,7 @@ const BaseButton = forwardRef<HTMLButtonElement, Props>((props, ref) => {
         size: Math.max(elem.clientWidth, elem.clientHeight),
       });
     }
-  }, [handleRef, baseButtonRef, setRippleProps]);
+  }, [baseButtonRef, setRippleProps]);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (onClick) onClick(e);

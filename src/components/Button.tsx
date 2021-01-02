@@ -21,36 +21,8 @@ const StyledButton = styled(ButtonBase)`
     filter: brightness(0.9);
   }
 
-  ::before,
-  ::after {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 0;
-    opacity: 0;
-    transition: opacity 300ms;
-    border-style: solid;
-  }
-
-  ::before {
-    top: 0;
-    left: 0;
-    border-width: 20px 40px 0 0;
-    border-color: #fff transparent transparent transparent;
-  }
-
-  ::after {
-    bottom: 0;
-    right: 0;
-    border-width: 0 0 20px 40px;
-    border-color: transparent transparent #fff transparent;
-  }
-
   :focus-visible {
-    ::before,
-    ::after {
-      opacity: 0.4;
-    }
+    outline: solid 2px #888;
   }
 
   :disabled {
