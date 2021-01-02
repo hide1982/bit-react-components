@@ -13,6 +13,7 @@ interface Props extends ButtonBaseStyleProps {
   color?: string;
   hoverColor?: string;
   disabled?: boolean;
+  className?: string;
 }
 
 const StyledButton = styled(ButtonBase)<{ hoverColor?: string }>`
@@ -48,6 +49,7 @@ const IconButton = forwardRef<HTMLButtonElement, Props>((props, ref) => {
     rippleColors,
     rippleRadius,
     disabled,
+    className
   } = props;
   const iconColor = disabled ? "#ccc" : color;
 
@@ -58,6 +60,7 @@ const IconButton = forwardRef<HTMLButtonElement, Props>((props, ref) => {
       hoverColor={hoverColor}
       rippleColors={rippleColors}
       rippleRadius={rippleRadius}
+      className={className}
     >
       <Icon name={name} color={iconColor} />
     </StyledButton>
