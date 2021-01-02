@@ -22,7 +22,7 @@ const StyledButton = styled(ButtonBase)<{ hoverColor?: string }>`
   align-items: center;
   width: 32px;
   height: 32px;
-  transition: background-color 300ms;
+  transition: background-color ${style.transition.duration};
 
   :hover {
     background-color: ${({ hoverColor }) => hoverColor};

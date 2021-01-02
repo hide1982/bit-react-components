@@ -4,6 +4,9 @@ const style = {
     hover: "brightness(0.9)",
     disabled: "brightness(1.3)",
   },
+  transition: {
+    duration: '300ms'
+  }
 };
 
 export default style;

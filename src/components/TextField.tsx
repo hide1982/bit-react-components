@@ -1,6 +1,8 @@
 import React, { forwardRef, useState } from "react";
 import styled from "styled-components";
 
+import style from "../constants/style";
+
 interface Props {
   placeholder?: string;
   value?: string;
@@ -15,6 +17,7 @@ const StyledInput = styled.input`
   padding: 0 12px;
   background-color: rgba(0, 0, 0, 0.1);
   border: solid 1px #333;
+  transition: background-color ${style.transition.duration};
 
   :focus {
     background-color: transparent;

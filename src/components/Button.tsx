@@ -15,7 +15,7 @@ const StyledButton = styled(ButtonBase)`
   padding: 0 12px;
   background-color: #aaa;
   color: #fff;
-  transition: filter 300ms;
+  transition: filter ${style.transition.duration};
 
   :hover {
     filter: ${style.filter.hover};
