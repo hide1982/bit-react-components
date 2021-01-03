@@ -2,7 +2,8 @@ import React, { forwardRef } from "react";
 import styled from "styled-components";
 
 import style from "../constants/style";
-import ButtonBase, { ButtonBaseProps } from "./ButtonBase";
+import ButtonBase from "./ButtonBase";
+import type { ButtonBaseProps } from "./ButtonBase";
 
 const StyledButton = styled(ButtonBase)`
   position: relative;

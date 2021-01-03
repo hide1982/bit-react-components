@@ -6,7 +6,7 @@ import useRipple from "./useRipple";
 
 export type RippleColor = string | [string, string?];
 
-interface StyleProps {
+export interface StyleProps {
   rippleColors?: RippleColor;
   rippleRadius?: string;
   rippleDuration?: string;
@@ -23,7 +23,7 @@ const StyledButton = styled.button<StyleProps>`
   padding: 0;
 `;
 
-interface BaseProps {
+export interface BaseProps {
   disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   className?: string;
