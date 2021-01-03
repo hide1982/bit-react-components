@@ -1,20 +1,9 @@
 import React, { forwardRef } from "react";
 import styled from "styled-components";
 
-import Icon from "./Icon";
-import ButtonBase from "./ButtonBase";
 import style from "../constants/style";
-
-import type { ButtonBaseStyleProps } from "../types";
-import type { IconName } from "./Icon";
-
-interface Props extends ButtonBaseStyleProps {
-  name: IconName;
-  color?: string;
-  hoverColor?: string;
-  disabled?: boolean;
-  className?: string;
-}
+import Icon, { IconName } from "./Icon";
+import ButtonBase, { ButtonBaseProps } from "./ButtonBase";
 
 const StyledButton = styled(ButtonBase)<{ hoverColor?: string }>`
   display: inline-flex;
@@ -41,30 +30,40 @@ const StyledButton = styled(ButtonBase)<{ hoverColor?: string }>`
   }
 `;
 
-const IconButton = forwardRef<HTMLButtonElement, Props>((props, ref) => {
-  const {
-    name,
-    color,
-    hoverColor = "rgba(0, 0, 0, 0.2)",
-    rippleColors,
-    rippleRadius,
-    disabled,
-    className
-  } = props;
-  const iconColor = disabled ? "#ccc" : color;
+export interface IconButtonProps extends ButtonBaseProps {
+  name: IconName;
+  color?: string;
+  hoverColor?: string;
+  disabled?: boolean;
+  className?: string;
+}
 
-  return (
-    <StyledButton
-      ref={ref}
-      disabled={disabled}
-      hoverColor={hoverColor}
-      rippleColors={rippleColors}
-      rippleRadius={rippleRadius}
-      className={className}
-    >
-      <Icon name={name} color={iconColor} />
-    </StyledButton>
-  );
-});
+const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  (props, ref) => {
+    const {
+      name,
+      color,
+      hoverColor = "rgba(0, 0, 0, 0.2)",
+      rippleColors,
+      rippleRadius,
+      disabled,
+      className,
+    } = props;
+    const iconColor = disabled ? "#ccc" : color;
+
+    return (
+      <StyledButton
+        ref={ref}
+        disabled={disabled}
+        hoverColor={hoverColor}
+        rippleColors={rippleColors}
+        rippleRadius={rippleRadius}
+        className={className}
+      >
+        <Icon name={name} color={iconColor} />
+      </StyledButton>
+    );
+  }
+);
 
 export default IconButton;

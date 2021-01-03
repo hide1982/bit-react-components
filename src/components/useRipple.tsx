@@ -8,18 +8,6 @@ interface Styles {
   duration?: string;
 }
 
-interface StyledRippleProps {
-  isDisplay: boolean;
-  top: number;
-  left: number;
-  size: number;
-  styles?: Styles;
-}
-
-interface RippleProps {
-  styles?: Styles;
-}
-
 const getBorderColor = (colors: Styles["colors"]) => {
   if (!colors) return "rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.6)";
 
@@ -29,6 +17,14 @@ const getBorderColor = (colors: Styles["colors"]) => {
 
   return `${colors[0]} ${colors[1] ?? colors[0]}`;
 };
+
+interface StyledRippleProps {
+  isDisplay: boolean;
+  top: number;
+  left: number;
+  size: number;
+  styles?: Styles;
+}
 
 const StyledRipple = styled.span<StyledRippleProps>`
   display: none;
@@ -58,6 +54,10 @@ const StyledRipple = styled.span<StyledRippleProps>`
     }
   }
 `;
+
+export interface RippleProps {
+  styles?: Styles;
+}
 
 const useRipple = () => {
   const [isDisplay, setIsDisplay] = useState(false);

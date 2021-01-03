@@ -3,13 +3,6 @@ import styled from "styled-components";
 
 import style from "../constants/style";
 
-interface Props {
-  placeholder?: string;
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  className?: string;
-}
-
 const StyledInput = styled.input`
   box-sizing: border-box;
   outline: none;
@@ -24,7 +17,14 @@ const StyledInput = styled.input`
   }
 `;
 
-const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
+export interface TextFieldProps {
+  placeholder?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  className?: string;
+}
+
+const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
   const { className, value: initialValue = "", onChange, placeholder } = props;
   const [value, setValue] = useState(initialValue);
 
