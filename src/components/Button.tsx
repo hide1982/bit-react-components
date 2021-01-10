@@ -37,7 +37,7 @@ const StyledButton = styled(ButtonBase)`
 export type ButtonProps = ButtonBaseProps;
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => (
-  <StyledButton ref={ref} {...props} />
+  <StyledButton ref={ref} data-testid="button" {...props} />
 ));
 
 export default Button;

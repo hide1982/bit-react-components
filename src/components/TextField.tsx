@@ -38,6 +38,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
         if (onChange) onChange(e);
         setValue(e.target.value);
       }}
+      data-testid="text-field"
     />
   );
 });

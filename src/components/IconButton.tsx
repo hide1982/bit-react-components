@@ -59,6 +59,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         rippleColors={rippleColors}
         rippleRadius={rippleRadius}
         className={className}
+        data-testid="icon-button"
       >
         <Icon name={name} color={iconColor} />
       </StyledButton>

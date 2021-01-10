@@ -90,6 +90,7 @@ const useRipple = () => {
       left={position.left}
       onAnimationEnd={() => setIsDisplay(false)}
       styles={styles}
+      data-testid="ripple"
     />
   ));
 

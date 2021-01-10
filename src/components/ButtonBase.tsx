@@ -66,7 +66,12 @@ const BaseButton = forwardRef<HTMLButtonElement, ButtonBaseProps>(
     };
 
     return (
-      <StyledButton ref={handleRef} onClick={handleClick} {...rest}>
+      <StyledButton
+        ref={handleRef}
+        onClick={handleClick}
+        data-testid="button-base"
+        {...rest}
+      >
         {children}
         <Ripple
           styles={{
