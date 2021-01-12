@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonBase component snapshot 1`] = `
+<button
+  class="sc-gsTCUz hKTmWo"
+  data-testid="button-base"
+>
+  button
+  <span
+    class="sc-bdfBwQ eKEvNE"
+    data-testid="ripple"
+  />
+</button>
+`;
