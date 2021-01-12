@@ -61,7 +61,7 @@ describe("ButtonBase component", () => {
 
   test("Can use ref", () => {
     const ref = React.createRef<HTMLButtonElement>();
-    render(<ButtonBase ref={ref}>hoge</ButtonBase>);
+    render(<ButtonBase ref={ref}>button</ButtonBase>);
 
     expect(ref.current?.dataset?.testid).toBe("button-base");
   });

@@ -11,17 +11,17 @@ describe("Button Component", () => {
 
   test("Can use onClick event callback", () => {
     const onClick = jest.fn();
-    render(<Button onClick={onClick}>hoge</Button>);
+    render(<Button onClick={onClick}>button</Button>);
 
     fireEvent.click(screen.getByTestId("button"));
     expect(onClick).toBeCalledTimes(1);
   });
 
-  test("Cannot be clicked if the button is disabled", () => {
+  test("Cannot use onClick event callback if the button is disabled", () => {
     const onClick = jest.fn();
     render(
       <Button onClick={onClick} disabled>
-        hoge
+        button
       </Button>
     );
 
@@ -31,7 +31,7 @@ describe("Button Component", () => {
 
   test("Can use ref", () => {
     const ref = React.createRef<HTMLButtonElement>();
-    render(<Button ref={ref}>hoge</Button>);
+    render(<Button ref={ref}>button</Button>);
 
     expect(ref.current?.dataset?.testid).toBe("button");
   });
