@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField component snapshot 1`] = `
+<input
+  class="sc-bdfBwQ geYXpz"
+  data-testid="text-field"
+  value=""
+/>
+`;
