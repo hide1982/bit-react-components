@@ -38,6 +38,11 @@ describe("TextField component", () => {
     );
   });
 
+  test("Can set Disabled", () => {
+    render(<TextField disabled />);
+    expect(screen.getByTestId("text-field")).toBeDisabled();
+  });
+
   test("Can use ref", () => {
     const ref = React.createRef<HTMLInputElement>();
     render(<TextField ref={ref} />);

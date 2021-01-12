@@ -21,11 +21,18 @@ export interface TextFieldProps {
   placeholder?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
   className?: string;
 }
 
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
-  const { className, value: initialValue = "", onChange, placeholder } = props;
+  const {
+    className,
+    value: initialValue = "",
+    onChange,
+    placeholder,
+    disabled,
+  } = props;
   const [value, setValue] = useState(initialValue);
 
   return (
@@ -38,6 +45,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
         if (onChange) onChange(e);
         setValue(e.target.value);
       }}
+      disabled={disabled}
       data-testid="text-field"
     />
   );
