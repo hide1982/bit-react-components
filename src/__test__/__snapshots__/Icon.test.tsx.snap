@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon component Can display Icon 1`] = `
+<div
+  class="sc-bdfBwQ hxYlxV"
+  data-testid="Icon"
+>
+  <svg
+    viewBox="0 0 20 20"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M7.05 9.293L6.343 10 12 15.657l1.414-1.414L9.172 10l4.242-4.243L12 4.343z"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Icon component Can display icon 1`] = `
+<div
+  class="sc-bdfBwQ hxYlxV"
+  data-testid="Icon"
+>
+  <svg
+    viewBox="0 0 20 20"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M7.05 9.293L6.343 10 12 15.657l1.414-1.414L9.172 10l4.242-4.243L12 4.343z"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Icon component snapshot 1`] = `
+<div
+  class="sc-bdfBwQ hxYlxV"
+  data-testid="Icon"
+>
+  <svg
+    viewBox="0 0 20 20"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M7.05 9.293L6.343 10 12 15.657l1.414-1.414L9.172 10l4.242-4.243L12 4.343z"
+    />
+  </svg>
+</div>
+`;

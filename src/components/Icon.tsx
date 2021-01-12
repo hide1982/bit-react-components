@@ -45,7 +45,7 @@ const Icon = forwardRef<HTMLDivElement, Props>(
       <IconWrapper
         ref={ref}
         styles={{ width, height, color }}
-        data-testid="Icon"
+        data-testid="icon"
         className={className}
       >
         {Icon}
