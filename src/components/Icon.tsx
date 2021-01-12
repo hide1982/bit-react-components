@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import styled from "styled-components";
 
-import getIcon, { IconName as Name } from "../../utils/getIcon";
+import getIcon, { IconName as Name } from "../utils/getIcon";
 
 export type IconName = Name;
 
@@ -30,13 +30,24 @@ const IconWrapper = styled.div<IconWrapperProps>`
 const defaultIconSize = 16;
 const Icon = forwardRef<HTMLDivElement, Props>(
   (
-    { name, width = defaultIconSize, height = defaultIconSize, color = "#000" },
+    {
+      name,
+      width = defaultIconSize,
+      height = defaultIconSize,
+      color = "#000",
+      className,
+    },
     ref
   ): JSX.Element => {
     const Icon = getIcon(name);
 
     return (
-      <IconWrapper ref={ref} styles={{ width, height, color }}>
+      <IconWrapper
+        ref={ref}
+        styles={{ width, height, color }}
+        data-testid="Icon"
+        className={className}
+      >
         {Icon}
       </IconWrapper>
     );
