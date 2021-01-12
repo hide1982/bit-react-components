@@ -17,7 +17,7 @@ const getBorderColor = (colors: Styles["colors"]) => {
   return `${colors[0]} ${colors[1] ?? colors[0]}`;
 };
 
-interface StyledRippleProps {
+interface RippleProps {
   isDisplay: boolean;
   top: number;
   left: number;
@@ -25,7 +25,7 @@ interface StyledRippleProps {
   styles?: Styles;
 }
 
-const Ripple = styled.span.attrs({ dataTestid: "ripple" })<StyledRippleProps>`
+const Ripple = styled.span.attrs({ dataTestid: "ripple" })<RippleProps>`
   display: none;
   ${({ isDisplay }) =>
     isDisplay &&
