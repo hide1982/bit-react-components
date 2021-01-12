@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, MouseEventHandler } from "react";
 import styled from "styled-components";
 
 import style from "../constants/style";
@@ -35,6 +35,7 @@ export interface IconButtonProps extends ButtonBaseProps {
   color?: string;
   hoverColor?: string;
   disabled?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   className?: string;
 }
 
@@ -47,6 +48,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       rippleColors,
       rippleRadius,
       disabled,
+      onClick,
       className,
     } = props;
     const iconColor = disabled ? "#ccc" : color;
@@ -58,6 +60,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         hoverColor={hoverColor}
         rippleColors={rippleColors}
         rippleRadius={rippleRadius}
+        onClick={onClick}
         className={className}
         data-testid="icon-button"
       >
