@@ -17,16 +17,9 @@ describe("Button Component", () => {
     expect(onClick).toBeCalledTimes(1);
   });
 
-  test("Cannot use onClick event callback if the button is disabled", () => {
-    const onClick = jest.fn();
-    render(
-      <Button onClick={onClick} disabled>
-        button
-      </Button>
-    );
-
-    fireEvent.click(screen.getByTestId("button"));
-    expect(onClick).toBeCalledTimes(0);
+  test("Can set Disabled", () => {
+    render(<Button disabled>button</Button>);
+    expect(screen.getByTestId("button")).toBeDisabled();
   });
 
   test("Can use ref", () => {

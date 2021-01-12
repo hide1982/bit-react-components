@@ -39,6 +39,15 @@ describe("IconButton component", () => {
     expect(onClick).toBeCalledTimes(0);
   });
 
+  test("Can set Disabled", () => {
+    render(
+      <IconButton name="close" disabled>
+        button
+      </IconButton>
+    );
+    expect(screen.getByTestId("icon-button")).toBeDisabled();
+  });
+
   test("Can use ref", () => {
     const ref = React.createRef<HTMLButtonElement>();
     render(

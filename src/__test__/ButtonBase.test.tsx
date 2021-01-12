@@ -19,6 +19,11 @@ describe("ButtonBase component", () => {
     expect(screen.getByTestId("ripple")).toHaveStyle("display: block");
   });
 
+  test("Can set Disabled", () => {
+    render(<ButtonBase disabled>button</ButtonBase>);
+    expect(screen.getByTestId("button-base")).toBeDisabled();
+  });
+
   test("Can use onClick event callback", () => {
     const onClick = jest.fn();
     render(<ButtonBase onClick={onClick}>button</ButtonBase>);
