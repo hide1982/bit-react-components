@@ -1,8 +1,9 @@
 import React, { forwardRef, MouseEventHandler, useEffect, useRef } from "react";
 import styled from "styled-components";
 
+import Ripple from "./Ripple";
 import useForkRef from "../utils/useForkRef";
-import useRipple from "./useRipple";
+import useRipple from "../hooks/useRipple";
 
 export type RippleColor = string | [string, string?];
 
@@ -42,21 +43,21 @@ const BaseButton = forwardRef<HTMLButtonElement, ButtonBaseProps>(
       onClick,
       ...rest
     } = props;
-    const { pulsate, setRippleProps, Ripple } = useRipple();
-
+    const { pulsate, rippleProps, setRippleParentInfo } = useRipple();
     const baseButtonRef = useRef<HTMLButtonElement>(null);
     const handleRef = useForkRef<HTMLButtonElement>(ref, baseButtonRef);
 
     useEffect(() => {
       if (baseButtonRef.current) {
         const elem = baseButtonRef.current;
-        setRippleProps({
-          top: elem.offsetTop,
-          left: elem.offsetLeft,
-          size: Math.max(elem.clientWidth, elem.clientHeight),
+        setRippleParentInfo({
+          offsetTop: elem.offsetTop,
+          offsetLeft: elem.offsetLeft,
+          clientHeight: elem.clientHeight,
+          clientWidth: elem.clientWidth,
         });
       }
-    }, [baseButtonRef, setRippleProps]);
+    }, [baseButtonRef, setRippleParentInfo]);
 
     const handleClick = (
       e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -74,6 +75,7 @@ const BaseButton = forwardRef<HTMLButtonElement, ButtonBaseProps>(
       >
         {children}
         <Ripple
+          {...rippleProps}
           styles={{
             colors: rippleColors,
             radius: rippleRadius,

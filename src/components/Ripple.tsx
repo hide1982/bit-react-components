@@ -1,4 +1,3 @@
-import React, { useState, useCallback, forwardRef } from "react";
 import styled, { css } from "styled-components";
 
 interface Styles {
@@ -26,7 +25,7 @@ interface StyledRippleProps {
   styles?: Styles;
 }
 
-const StyledRipple = styled.span<StyledRippleProps>`
+const Ripple = styled.span.attrs({ dataTestid: "ripple" })<StyledRippleProps>`
   display: none;
   ${({ isDisplay }) =>
     isDisplay &&
@@ -55,46 +54,4 @@ const StyledRipple = styled.span<StyledRippleProps>`
   }
 `;
 
-export interface RippleProps {
-  styles?: Styles;
-}
-
-const useRipple = () => {
-  const [isDisplay, setIsDisplay] = useState(false);
-  const [position, setPosition] = useState({ top: 0, left: 0 });
-
-  const [rippleProps, setRippleProps] = useState({
-    top: 0,
-    left: 0,
-    size: 0,
-  });
-
-  const pulsate = useCallback(
-    (e: React.MouseEvent) => {
-      const radius = rippleProps.size / 2;
-      setPosition({
-        top: e.clientY - (rippleProps.top + radius),
-        left: e.clientX - (rippleProps.left + radius),
-      });
-      setIsDisplay(true);
-    },
-    [rippleProps]
-  );
-
-  const Ripple = forwardRef<HTMLSpanElement, RippleProps>(({ styles }, ref) => (
-    <StyledRipple
-      ref={ref}
-      isDisplay={isDisplay}
-      size={rippleProps.size}
-      top={position.top}
-      left={position.left}
-      onAnimationEnd={() => setIsDisplay(false)}
-      styles={styles}
-      data-testid="ripple"
-    />
-  ));
-
-  return { setRippleProps, pulsate, Ripple };
-};
-
-export default useRipple;
+export default Ripple;
