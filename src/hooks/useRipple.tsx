@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 const useRipple = () => {
   const [isDisplay, setIsDisplay] = useState(false);

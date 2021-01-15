@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Ripple from "../components/Ripple";
+import Ripple from "../Ripple";
 
 describe("Ripple component", () => {
   test("snapshot", () => {

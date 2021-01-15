@@ -1,6 +1,5 @@
-import React from "react";
 import { renderHook, act } from "@testing-library/react-hooks";
-import useRipple from "../hooks/useRipple";
+import useRipple from "../useRipple";
 
 describe("useRipple hook", () => {
   test("Should set correct values when called pulsate", () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 
-import Icon from "../components/Icon";
+import Icon from "../Icon";
 import styled from "styled-components";
 
 describe("Icon component", () => {

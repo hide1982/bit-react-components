@@ -1,6 +1,6 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
-import TextField from "../components/TextField";
+import TextField from "../TextField";
 import styled from "styled-components";
 
 describe("TextField component", () => {
