@@ -9,7 +9,7 @@ describe("TextField component", () => {
     expect(screen.getByTestId("text-field")).toMatchSnapshot();
   });
 
-  test("Can input test", () => {
+  test("Can input text", () => {
     render(<TextField />);
     const input = screen.getByTestId("text-field");
     fireEvent.change(input, {
