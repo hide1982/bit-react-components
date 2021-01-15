@@ -1,31 +1,42 @@
-import React, { useEffect, useRef } from "react";
-import "./App.css";
+import React from "react";
+import styled from "styled-components";
 
 import Button from "./components/Button";
 import Icon from "./components/Icon";
 import IconButton from "./components/IconButton";
+import TextField from "./components/TextField";
+
+const StyledWrapper = styled.div`
+  margin: 24px;
+`;
+
+const Name = styled.div`
+  font-weight: bold;
+  margin-bottom: 4px;
+`;
+
+const Wrapper: React.FC<{ name: string }> = ({ name, children }) => (
+  <StyledWrapper>
+    <Name>{name}</Name>
+    {children}
+  </StyledWrapper>
+);
 
 function App() {
-  const ref = useRef(null);
-  useEffect(() => {
-    if (ref.current) {
-      console.log("App ref ==================");
-      console.log(ref);
-    }
-  }, [ref]);
   return (
     <div className="App">
-      <Button
-        onClick={() => {
-          console.log("hoge");
-        }}
-      >
-        button
-      </Button>
-      <Button>button2</Button>
-      <Button rippleColors={["blue", "red"]}>disabled</Button>
-      <Icon name="search" width={50} height={50} />
-      <IconButton name="close" />
+      <Wrapper name="Button">
+        <Button>button</Button>
+      </Wrapper>
+      <Wrapper name="Icon">
+        <Icon name="search" />
+      </Wrapper>
+      <Wrapper name="IconButton">
+        <IconButton name="close" />
+      </Wrapper>
+      <Wrapper name="TextField">
+        <TextField />
+      </Wrapper>
     </div>
   );
 }
