@@ -8,6 +8,7 @@ describe("ButtonBase component", () => {
     render(<ButtonBase>button</ButtonBase>);
     expect(screen.getByTestId("button-base")).toMatchSnapshot();
   });
+
   test("Should Ripple invisible by default", () => {
     render(<ButtonBase>button</ButtonBase>);
     expect(screen.getByTestId("ripple")).toHaveStyle("display: none");
