@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import styled from "styled-components";
-import ButtonBase from "../ButtonBase";
+import ButtonBase from "../components/ButtonBase";
 
 describe("ButtonBase component", () => {
   test("snapshot", () => {
