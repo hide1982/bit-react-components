@@ -25,7 +25,7 @@ interface RippleProps {
   styles?: Styles;
 }
 
-const Ripple = styled.span.attrs({ dataTestid: "ripple" })<RippleProps>`
+const Ripple = styled.span.attrs({ "data-testid": "ripple" })<RippleProps>`
   display: none;
   ${({ isDisplay }) =>
     isDisplay &&

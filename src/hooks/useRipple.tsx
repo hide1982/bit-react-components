@@ -4,7 +4,6 @@ const useRipple = () => {
   const [isDisplay, setIsDisplay] = useState(false);
   const [position, setPosition] = useState({ top: 0, left: 0 });
   const [size, setSize] = useState(0);
-
   const [rippleParentInfo, setRippleParentInfo] = useState({
     offsetTop: 0,
     offsetLeft: 0,
@@ -19,11 +18,11 @@ const useRipple = () => {
   }, [rippleParentInfo]);
 
   const pulsate = useCallback(
-    (e: React.MouseEvent) => {
+    (clientX: number, clientY: number) => {
       const radius = size / 2;
       setPosition({
-        top: e.clientY - (rippleParentInfo.offsetTop + radius),
-        left: e.clientX - (rippleParentInfo.offsetLeft + radius),
+        top: clientY - (rippleParentInfo.offsetTop + radius),
+        left: clientX - (rippleParentInfo.offsetLeft + radius),
       });
       setIsDisplay(true);
     },

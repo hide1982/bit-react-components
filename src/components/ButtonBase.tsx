@@ -63,7 +63,7 @@ const BaseButton = forwardRef<HTMLButtonElement, ButtonBaseProps>(
       e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
       if (onClick) onClick(e);
-      pulsate(e);
+      pulsate(e.clientX, e.clientY);
     };
 
     return (
