@@ -18,6 +18,16 @@ describe("TextField component", () => {
     expect(input).toHaveValue("input text");
   });
 
+  test("Can use keyDown event callback", () => {
+    const onKeyDown = jest.fn();
+    render(<TextField onKeydown={onKeyDown} />);
+    fireEvent.keyDown(screen.getByTestId("text-field"), {
+      key: "Enter",
+      code: "Enter",
+    });
+    expect(onKeyDown).toBeCalledTimes(1);
+  });
+
   test("Can set placeholder", () => {
     render(<TextField placeholder="placeholder test" />);
     expect(screen.getByPlaceholderText("placeholder test")).toBeInTheDocument();

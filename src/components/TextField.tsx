@@ -20,7 +20,8 @@ const StyledInput = styled.input`
 export interface TextFieldProps {
   placeholder?: string;
   value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onKeydown?: React.KeyboardEventHandler<HTMLInputElement>;
   disabled?: boolean;
   className?: string;
 }
@@ -30,6 +31,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
     className,
     value: initialValue = "",
     onChange,
+    onKeydown,
     placeholder,
     disabled,
   } = props;
@@ -45,6 +47,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
         if (onChange) onChange(e);
         setValue(e.target.value);
       }}
+      onKeyDown={onKeydown}
       disabled={disabled}
       data-testid="text-field"
     />
